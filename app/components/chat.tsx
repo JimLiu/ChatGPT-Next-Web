@@ -742,6 +742,11 @@ export function Chat() {
       >
         {messages.map((message, i) => {
           const isUser = message.role === "user";
+          const isSystem = message.role === "system";
+          if (isSystem) {
+            return null;
+          }
+
           const showActions =
             !isUser &&
             i > 0 &&
